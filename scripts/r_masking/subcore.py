@@ -5,6 +5,10 @@ from PIL import Image
 import scripts.r_masking.core as core
 from reactor_utils import tensor_to_pil
 
+import torch
+import ultralytics.nn.tasks
+torch.serialization.add_safe_globals([ultralytics.nn.tasks.DetectionModel])
+
 try:
     from ultralytics import YOLO
 except Exception as e:
